@@ -669,3 +669,4 @@ main,.site-footer{overflow-x:clip}
 .ing-set .ing-node{animation:fadeFrom .6s both}
 @keyframes fadeFrom{from{opacity:0}}
 .hero-meta{visibility:hidden}.hero:has(.is-3d) .hero-meta{visibility:visible}
+@media (max-width:900px){.sticky,.faq-aside{position:static}}
