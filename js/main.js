@@ -238,9 +238,7 @@
 
   /* ---------------- Sticky buy bar (product pages) ---------------- */
   const sticky = $(".sticky-buy"), buyBox = $(".buy-box");
-  if (sticky && buyBox) {
-    new IntersectionObserver(([en]) => sticky.classList.toggle("is-shown", !en.isIntersecting && en.boundingClientRect.top < 0)).observe(buyBox);
-  }
+  /* buy bar stays docked at the bottom on mobile (see css) */
 
   /* =====================================================================
      CART  (stored in localStorage; checkout sends an order request email)
