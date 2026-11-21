@@ -705,3 +705,29 @@ main,.site-footer{overflow-x:clip}
 @keyframes orbitCounter{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
 @keyframes corePulse{50%{transform:scale(1.025)}}
 @media (prefers-reduced-motion:reduce){.ing-set,.ing-set .ing-node,.ing-visual .core{animation:none!important}.ing-set .ing-node{transform:translate(-50%,-50%)}}
+
+/* ===== Marquee v2 — premium dark band with brand-gradient type ===== */
+.marquee{position:relative;background:radial-gradient(120% 140% at 50% 0%,#17301f 0%,var(--forest-950) 70%);color:var(--cream);padding:0;border:0;overflow:hidden;isolation:isolate}
+.marquee::before,.marquee::after{content:"";position:absolute;left:0;right:0;height:1px;z-index:2;background:linear-gradient(90deg,transparent,#f7b733 15%,#d71a3c 35%,#2e2a8e 55%,#1f9ad6 72%,#3aaa48 88%,transparent);background-size:200% 100%;animation:mqLine 9s linear infinite;opacity:.85}
+.marquee::before{top:0}.marquee::after{bottom:0;animation-direction:reverse}
+.marquee-row{position:relative;overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.marquee-row--a{padding:26px 0 10px}
+.marquee-row--b{padding:6px 0 24px}
+.marquee .marquee-track{display:flex;width:max-content;animation:marquee 46s linear infinite}
+.marquee-row--b .marquee-track{animation-duration:58s;animation-direction:reverse}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-row--a .marquee-track{background:linear-gradient(90deg,#f7b733,#f08a3c,#d71a3c,#8e3fa0,#3d4fc0,#1f9ad6,#45b8ea,#6cc36a,#3aaa48,#a9d98a,#f7b733);background-size:25% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:marquee 46s linear infinite,mqHue 14s linear infinite}
+.marquee-row--a span{display:inline-flex;align-items:center;gap:30px;padding-right:30px;font-family:var(--font-display);font-size:clamp(1.6rem,3.2vw,2.9rem);font-style:italic;font-weight:330;letter-spacing:-.015em;line-height:1.15;white-space:nowrap;font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 144}
+.marquee-row--b span{display:inline-flex;align-items:center;gap:22px;padding-right:22px;font-size:.78rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;white-space:nowrap;color:rgba(244,238,227,.55)}
+.marquee-row--b em{font-style:normal;font-size:.7rem;color:var(--gold)}
+.mq-dots{position:relative;display:inline-block;width:26px;height:26px;flex:none}
+.mq-dots b{position:absolute;border-radius:50%;box-shadow:0 0 12px currentColor}
+.mq-dots b:nth-child(1){left:2px;top:4px;width:8px;height:8px;background:#f7b733;color:#f7b733}
+.mq-dots b:nth-child(2){left:3px;top:15px;width:7px;height:7px;background:#d71a3c;color:#d71a3c}
+.mq-dots b:nth-child(3){left:13px;top:18px;width:6px;height:6px;background:#2e2a8e;color:#3d4fc0}
+.mq-dots b:nth-child(4){left:15px;top:7px;width:9px;height:9px;background:#1f9ad6;color:#1f9ad6}
+@keyframes mqHue{to{background-position:100% 0}}
+@keyframes mqLine{to{background-position:-200% 0}}
+@media (prefers-reduced-motion:reduce){.marquee .marquee-track,.marquee::before,.marquee::after{animation:none!important}}
+.marquee .marquee-row--b .marquee-track span{font-family:var(--font-body);font-style:normal;font-size:.74rem;font-weight:700;letter-spacing:.3em}
+.marquee .marquee-row--a .marquee-track span{font-size:clamp(1.6rem,3.2vw,2.9rem)}
