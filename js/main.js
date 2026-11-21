@@ -277,7 +277,7 @@
     if (!PRODUCTS[id]) return;
     cart[id] = (cart[id] || 0) + n; save(); render();
     countEls.forEach((c) => { c.classList.remove("bump"); void c.offsetWidth; c.classList.add("bump"); });
-    toast(`${PRODUCTS[id].name} added to your bag`);
+    if (!document.body.classList.contains("drawer-open")) toast(`${PRODUCTS[id].name} added`);
   }
   function openCart() { if (!drawer) return; const tt = document.querySelector(".toast"); if (tt) tt.classList.remove("is-shown"); document.body.classList.add("drawer-open"); drawer.setAttribute("aria-hidden", "false"); setTimeout(() => { const c = $(".drawer-close"); c && c.focus(); }, 200); }
   function closeCart() { if (!drawer) return; document.body.classList.remove("drawer-open"); drawer.setAttribute("aria-hidden", "true"); drawer.classList.remove("is-checkout"); }
@@ -308,7 +308,7 @@
   function toast(msg) {
     let t = $(".toast");
     if (!t) { t = document.createElement("div"); t.className = "toast"; t.setAttribute("role", "status"); t.setAttribute("aria-live", "polite"); document.body.appendChild(t); }
-    t.innerHTML = `<span class="tick"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2"><path d="M2 6.5l2.5 2.5L10 3"/></svg></span>${msg}<button type="button" class="link-u" data-open-cart style="margin-left:6px;color:var(--leaf-soft)">View bag</button>`;
+    t.innerHTML = `<span class="tick"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="#fff" stroke-width="2"><path d="M2 6.5l2.5 2.5L10 3"/></svg></span><span class="msg">${msg}</span><button type="button" class="link-u" data-open-cart style="margin-left:6px;color:var(--leaf-soft)">View bag</button>`;
     t.classList.add("is-shown"); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove("is-shown"), 3600);
   }
 

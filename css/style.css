@@ -681,3 +681,15 @@ main,.site-footer{overflow-x:clip}
   body:has(.sticky-buy) .site-footer{padding-bottom:calc(76px + env(safe-area-inset-bottom))}
   body:has(.sticky-buy) .toast{bottom:calc(96px + env(safe-area-inset-bottom))}
 }
+/* Toast v2: never over the open bag; full-width + single line on phones */
+.toast .msg{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.toast .link-u{white-space:nowrap;flex:none}
+.drawer-open .toast{opacity:0;visibility:hidden;pointer-events:none}
+@media (max-width:600px){
+  .toast{left:12px;right:12px;width:auto;transform:translateY(calc(100% + 40px));border-radius:16px;padding:12px 16px;font-size:.86rem;gap:10px}
+  .toast.is-shown{transform:none}
+  .toast .msg{flex:1}
+  .toast .tick{flex:none}
+}
+.drawer.is-checkout .drawer-foot{align-content:start}
+.toast{box-shadow:0 18px 40px -12px rgba(0,0,0,.5),inset 0 0 0 1px rgba(244,238,227,.16)}
