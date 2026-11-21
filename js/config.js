@@ -9,8 +9,8 @@
    ===================================================================== */
 window.DUST_CONFIG = {
 
-  PRICE_SO_FRESH_SO_GREEN: "XX.XX",   // ← PRICE #1  So Fresh & So Green
-  PRICE_POWER_UP:          "XX.XX",   // ← PRICE #2  Power Up
+  PRICE_SO_FRESH_SO_GREEN: "28.00",   // ← PRICE #1  So Fresh & So Green
+  PRICE_POWER_UP:          "30.00",   // ← PRICE #2  Power Up
 
   currency: "$",
 
