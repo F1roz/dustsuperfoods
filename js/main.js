@@ -67,6 +67,7 @@
     if (header) {
       const heroH = darkHero ? darkHero.offsetHeight - 80 : 0;
       header.classList.toggle("is-over-dark", !!darkHero && y < heroH);
+      header.classList.toggle("is-scrolled", y > 24);
       header.classList.toggle("is-solid", y > 24 && !(darkHero && y < heroH));
       const hide = y > 700 && y > lastY + 4 && !document.body.classList.contains("menu-open");
       if (hide) header.classList.add("is-hidden"); else if (y < lastY - 4 || y < 700) header.classList.remove("is-hidden");
