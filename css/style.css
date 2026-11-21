@@ -693,3 +693,15 @@ main,.site-footer{overflow-x:clip}
 }
 .drawer.is-checkout .drawer-foot{align-content:start}
 .toast{box-shadow:0 18px 40px -12px rgba(0,0,0,.5),inset 0 0 0 1px rgba(244,238,227,.16)}
+/* Spinning ingredient orbit — bubbles circle the centre, labels stay upright */
+.ing-set{position:absolute;inset:0;animation:orbit 48s linear infinite}
+.ing-set .ing-node{animation:orbitCounter 48s linear infinite}
+.ing-set .ing-node:hover{transform:translate(-50%,-50%)}
+.ing-node .bubble{transition:transform .5s var(--ease)}
+.ing-node:hover .bubble{transform:scale(1.15)}
+.ing-visual:hover .ing-set,.ing-visual:hover .ing-set .ing-node{animation-play-state:paused}
+.ing-visual .core{animation:corePulse 6s ease-in-out infinite}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes orbitCounter{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+@keyframes corePulse{50%{transform:scale(1.025)}}
+@media (prefers-reduced-motion:reduce){.ing-set,.ing-set .ing-node,.ing-visual .core{animation:none!important}.ing-set .ing-node{transform:translate(-50%,-50%)}}
